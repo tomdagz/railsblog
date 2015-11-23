@@ -5,4 +5,13 @@
 %div
 	= @article.body
 
+%h3 Comentarios
+= render "comments/form"
+
+%ul
+	- @article.comments.each do |comment|
+		%li
+			= comment.body
+			= comment.user.email
+
 = link_to "Editar", edit_article_path(@article)	

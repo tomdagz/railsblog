@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
 	belongs_to :user
+	has_many :comments
 	validates :title, :body, presence: true
 	validates :body, length: { minimum:20 }
 	validates :title, uniqueness: true
