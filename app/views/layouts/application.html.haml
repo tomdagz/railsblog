@@ -13,6 +13,20 @@
         %ul
           %li
             = link_to "Inicio", root_path
+          
+          - if user_signed_in?
+            %li
+              = link_to "Cerrar sesion", destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to "Iniciar sesion", new_user_session_path
+            %li
+              = link_to "Crear cuenta", new_user_registration_path
+
+    %p.notice
+      = notice
+    %p.alert
+      = alert
 
     = yield
 
